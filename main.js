@@ -15,7 +15,7 @@ $(document).ready(function() {
   $('#name-step').click(function(e) {
           e.preventDefault();
   // Option to just progress
-  //        $('.w-round div:nth-child(2)').trigger('tap');
+   //       $('.w-round div:nth-child(2)').trigger('tap');
 
 // Field Validation
     if($('#name-input').val().length !=0){
