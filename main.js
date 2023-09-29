@@ -1,10 +1,12 @@
+console.log("Debug Mode is ON");
+// If form-verification=alert-text then hide / show this element
+// button-nextstep identifies the next step button
 
 $(document).ready(function() {
     $(":input, a").attr("tabindex", "-1");
   
   /******Step 1 *******************/
 
-  
   $('#name-input').keypress(function(event) {
       if (event.keyCode == 13) {
           event.preventDefault();
@@ -12,23 +14,29 @@ $(document).ready(function() {
       }
   });
   
-  $('#name-step').click(function(e) {
+  $("[button-nextstep='validate'][button-stepnumber='1']").click(function(e) {
           e.preventDefault();
+
   // Option to just progress
-   //       $('.w-round div:nth-child(2)').trigger('tap');
+  //        $('.w-round div:nth-child(2)').trigger('tap');
 
 // Field Validation
     if($('#name-input').val().length !=0){
-        $('#name-alert').hide();
+        $("[form-verification='alert-text']").hide();
         $('.w-round div:nth-child(2)').trigger('tap');
      }
      
     else
       {
-        $('#name-alert').show(500);
+        $("[form-verification='alert-text']").show(500);
       }
 
     });
+// If data attribute is set to Progress
+    $("[button-nextstep='progress']").click(function(e) {
+        e.preventDefault();
+        $('.w-round div:nth-child(2)').trigger('tap');
+  });
   
 
   /******Step 2 *******************/
@@ -42,13 +50,13 @@ $(document).ready(function() {
           e.preventDefault();
     
     if($('#email-input').val().length !=0){
-      $('#email-alert').hide();
+      $("[form-verification='alert-text']").hide();
       $('.w-round div:nth-child(3)').trigger('tap');
      }
      
     else
       {
-        $('#email-alert').show(500);
+        $("[form-verification='alert-text']").show(500);
       }
       });
   
@@ -75,7 +83,7 @@ If $+10,000 then skip straight to Slide 5
 
     if ( ! $("input[name='Budget']").is(':checked') ) {
 
-      $('#budget-alert').show(500);
+      $("[form-verification='alert-text']").show(500);
      }
      
     else
@@ -85,7 +93,7 @@ If $+10,000 then skip straight to Slide 5
            whereFromStepThree = 5;
           }
 
-        $('#budget-alert').hide();
+        $("[form-verification='alert-text']").hide();
         $(".w-round div:nth-child("+ whereFromStepThree + ")").trigger('tap');
       }
       });
@@ -108,12 +116,12 @@ If $+10,000 then skip straight to Slide 5
     
     if ( ! $("input[name='platform']").is(':checked') ) {
 
-      $('#platform-alert').show(500);
+      $("[form-verification='alert-text']").show(500);
      }
      
     else
       {
-        $('#platform-alert').hide();
+        $("[form-verification='alert-text']").hide();
         $('.w-round div:nth-child(5)').trigger('tap');
       }
       });
