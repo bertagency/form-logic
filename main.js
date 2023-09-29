@@ -1,4 +1,3 @@
-console.log("Debug Mode is ON");
 // If form-verification=alert-text then hide / show this element
 // button-nextstep identifies the next step button
 
@@ -25,7 +24,7 @@ $(document).ready(function() {
         $("[form-verification='alert-text']").hide();
         $('.w-round div:nth-child(2)').trigger('tap');
      }
-     
+
     else
       {
         $("[form-verification='alert-text']").show(500);
